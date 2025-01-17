@@ -67,72 +67,61 @@ BLYNK_WRITE(V4) {
 }
  
 void smartcar() {
-  if (forward && !backward && !left && !right) {
-    carForward();
-    Serial.println("carForward");
-  } else if (backward && !forward && !left && !right) {
-    carBackward();
-    Serial.println("carBackward");
-  } else if (left && !forward && !backward && !right) {
-    carTurnLeft();
-    Serial.println("carTurnLeft");
-  } else if (right && !forward && !backward && !left) {
-    carTurnRight();
-    Serial.println("carTurnRight");
-  } else {
+  if (forward == 1) {
+    carforward();
+    Serial.println("carforward");
+  } else if (backward == 1) {
+    carbackward();
+    Serial.println("carbackward");
+  } else if (left == 1) {
+    carturnleft();
+    Serial.println("carfleft");
+  } else if (right == 1) {
+    carturnright();
+    Serial.println("carright");
+  } else if (forward == 0 && backward == 0 && left == 0 && right == 0) {
     carStop();
-    Serial.println("carStop");
+    Serial.println("carstop");
   }
 }
-
 void loop() {
   Blynk.run();
   smartcar();
 }
-// ฟังก์ชันสำหรับขับรถไปข้างหน้า
-void carForward() {
-  ledcWrite(0, Speed);
-  ledcWrite(1, Speed);
+ 
+void carforward() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 }
-
-// ฟังก์ชันสำหรับถอยหลัง
-void carBackward() {
-  ledcWrite(0, Speed);
-  ledcWrite(1, Speed);
+void carbackward() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
-
-// ฟังก์ชันสำหรับเลี้ยวซ้าย
-void carTurnLeft() {
-  ledcWrite(0, Speed);
-  ledcWrite(1, Speed);
+void carturnleft() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
 }
-
-// ฟังก์ชันสำหรับเลี้ยวขวา
-void carTurnRight() {
-  ledcWrite(0, Speed);
-  ledcWrite(1, Speed);
+void carturnright() {
+  analogWrite(ENA, Speed);
+  analogWrite(ENB, Speed);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
 }
-
-// ฟังก์ชันสำหรับหยุดรถ
 void carStop() {
-  ledcWrite(0, 0);
-  ledcWrite(1, 0);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW);
