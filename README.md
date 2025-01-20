@@ -81,5 +81,4 @@ This project is open-source and available for personal use. Feel free to modify 
 
 ---
 
-**Created by Sritu Hobby Team**  
-[https://srituhobby.com](https://srituhobby.com)
+**Created by XTEN Team** 
