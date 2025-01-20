@@ -23,8 +23,8 @@
 #define IN4 26  // Motor B Direction
 #define ENB 25  // Motor B Speed Control
 
-char ssid[] = "Veevi_2G";       // WiFi SSID
-char pass[] = "0860304069";     // WiFi Password
+char ssid[] = "";       // WiFi SSID
+char pass[] = "";     // WiFi Password
 
 
 bool forward = 0;
