@@ -1,6 +1,17 @@
 # Wifi_Cotrol_car-lot
 # WiFi Controlled Car with Blynk and ESP8266
 
+---
+
+## 🎬 Project Demo  
+
+<details>
+  <summary>คลิกเพื่อดูวิดีโอสาธิตบน YouTube</summary>
+
+  [![WiFi Car Demo – YouTube](https://img.youtube.com/vi/dN35aqvpnqM/hqdefault.jpg)](https://www.youtube.com/watch?v=dN35aqvpnqM)
+</details>
+---
+
 This project is a WiFi-controlled car using a NodeMCU ESP8266 and the Blynk app. The car can be controlled remotely via the Blynk app to move forward, backward, turn left, turn right, and stop. You can also adjust the speed of the car via the app.
 
 ## Overview
